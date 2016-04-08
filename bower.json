@@ -2,7 +2,7 @@
   "name": "palladio-timeline-component",
   "description": "Timeline component for Palladio",
   "main": [
-    "dist/palladio-timeline-component.js",
+    "dist/palladio-timeline-component.min.js",
     "dist/palladio-timeline-component.css"
   ],
   "authors": [

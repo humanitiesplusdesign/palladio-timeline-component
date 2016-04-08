@@ -22,6 +22,9 @@ gulp.task('scripts', function () {
 	merge(files, templates)
 		.pipe(order(['*.js', '*.tmpl']))
         .pipe(concat('palladio-timeline-component.js'))
+        .pipe(gulp.dest('./dist/'))
+        .pipe(uglify())
+        .pipe(rename('palladio-timeline-component.min.js'))
         .pipe(gulp.dest('./dist/'));
 });
 

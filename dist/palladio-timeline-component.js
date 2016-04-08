@@ -1,7 +1,7 @@
 /* global SvgSaver */
 // Timeline filter module
 
-angular.module('palladioTimelineFilter', ['palladio', 'palladio.services'])
+angular.module('palladioTimelineComponent', ['palladio', 'palladio.services'])
 	.run(['componentService', function(componentService) {
 		var compileStringFunction = function (newScope, options) {
 
