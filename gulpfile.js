@@ -34,14 +34,6 @@ gulp.task('css', function () {
 		.pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('images', function () {
-	gulp.src('./bower_components/mapbox.js/images/*')
-		.pipe(gulp.dest('./images/'))
-        .pipe(gulp.dest('./apps/projectexample/assets/images/'))
-        .pipe(gulp.dest('./apps/timespans/images/'))
-        .pipe(gulp.dest('./apps/template/images/'));
-});
-
 // Watch Files For Changes
 gulp.task('watch', function() {
   gulp.watch(palladioSources, ['scripts']);
