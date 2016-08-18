@@ -451,7 +451,10 @@ angular.module('palladioTimelineComponent', ['palladio', 'palladio.services'])
 							.reduce(function (a, b) { return a + b; }, 0);
 					}));
 
-					y1.domain([0, groupMax]);
+					// If we exceed the current domain, expand. Otherwise remain static.
+					if(groupMax > y1.domain()[1]) {
+						y1.domain([0, groupMax]);
+					}
 
 					yAxis.scale(y1);
 
