@@ -1313,7 +1313,12 @@ angular.module('palladioTimelineComponent', ['palladio', 'palladio.services'])
 						};
 						scope.functions["group"] = function(dim) {
 							scope.$apply(function(s) {
-								s.groupProp = s.groupDims.filter(function(f) { return f.key === dim.key; })[0];
+								if(dim) {
+									s.groupProp = s.groupDims.filter(function(f) { return f.key === dim.key; })[0];
+								} else {
+									s.groupProp = null;
+								}
+								
 							});
 						};
 					}
