@@ -376,7 +376,7 @@ angular.module('palladioTimelineComponent', ['palladio', 'palladio.services'])
 								d3.select(this).style("fill", function(d) { return color(d[0].i); });
 							})
 							.tooltip(function (d,i){
-                if(stackGroups[d[0].i]) {
+                if(stackGroups[d[0].i] && stackGroups[d[0].i] !== "No group") {
                   return {
                     text : stackGroups[d[0].i],
                     displacement : [0,20],
@@ -1143,6 +1143,7 @@ angular.module('palladioTimelineComponent', ['palladio', 'palladio.services'])
             if(scope.groupProp) {
               scope.groupAccessor = function(d) { return d[scope.groupProp.key] + ""; }; 
             } else {
+							// TODO: Should use a unique random value here (or a Symbol)
               scope.groupAccessor = function(d) { return "No group"; }
             }
 					});
