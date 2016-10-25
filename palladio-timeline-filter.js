@@ -34,7 +34,7 @@ angular.module('palladioTimelineComponent', ['palladio', 'palladio.services'])
 		componentService.register('timeline', compileStringFunction);
 	}])
 	.directive('palladioTimelineFilter', ['dateService', 'palladioService', function (dateService, palladioService) {
-		var filterColor = "#9DBCE4";
+		var filterClass = "filter-extent";
 
 		var directiveDefObj = {
 			scope: {
@@ -335,8 +335,7 @@ angular.module('palladioTimelineComponent', ['palladio', 'palladio.services'])
 
 					brush.extentAdaption(function (selection) {
 						selection.attr("height", mainHeight)
-							.attr("fill", filterColor)
-							.attr("fill-opacity", ".25");
+							.classed(filterClass, true);
 					});
 
 					gBrush = gr.append("g").attr("class", "brush")
