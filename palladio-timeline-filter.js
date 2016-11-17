@@ -159,10 +159,19 @@ angular.module('palladioTimelineComponent', ['palladio', 'palladio.services'])
 					}
 				});
 
-				scope.$watchGroup(['uniqueDimension', 'aggregationType', 'aggregationType'], function(nv, ov) {
+				scope.$watchGroup(['uniqueDimension', 'aggregationType', 'aggregationKey'], function(nv, ov) {
 					if(nv[0] !== ov[0] || nv[1] !== ov[1] || nv[2] !== ov[2]) {
 						uniqueDimension = scope.uniqueDimension === "" ? undefined : scope.uniqueDimension;
-						buildGroupings();
+
+						// Grab the current brush extent so we can redraw later.
+						tempExtent = brush.extent();
+						brush.clear();
+
+						setup();
+
+						brush.extent(tempExtent);
+
+						sel.call(initializeTimeline);
 						sel.call(updateTimeline);
 					}
 				});
