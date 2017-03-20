@@ -1312,12 +1312,12 @@ angular.module('palladioTimelineComponent', ['palladio', 'palladio.services'])
 					if(scope.functions) {
 						scope.functions["date"] = function(dim) {
 							scope.$apply(function(s) {
-								s.dateProp = s.dateDims.filter(function(f) { return f.key === dim.key; })[0];
+								if(dim) s.dateProp = s.dateDims.filter(function(f) { return f.key === dim.key; })[0];
 							});
 						};
 						scope.functions["aggregation"] = function(dim) {
 							scope.$apply(function(s) {
-								s.aggDim = s.aggDims.filter(function(f) { return f.key === dim.key; })[0];
+								if(dim) s.aggDim = s.aggDims.filter(function(f) { return f.key === dim.key; })[0];
 							});
 						};
 						scope.functions["group"] = function(dim) {
@@ -1330,6 +1330,9 @@ angular.module('palladioTimelineComponent', ['palladio', 'palladio.services'])
 								
 							});
 						};
+						scope.functions['getSettings'] = function() {
+							return element.find('.timeline-settings')[0];
+						}
 					}
 
 					var importState = function(state) {
