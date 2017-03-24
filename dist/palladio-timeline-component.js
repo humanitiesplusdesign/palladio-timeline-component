@@ -1333,6 +1333,13 @@ angular.module('palladioTimelineComponent', ['palladio', 'palladio.services'])
 						scope.functions['getSettings'] = function() {
 							return element.find('.timeline-settings')[0];
 						}
+						scope.functions['importState'] = function(state) {
+							importState(state)
+							return true
+						}
+						scope.functions['exportState'] = function() {
+							return exportState()
+						}
 					}
 
 					var importState = function(state) {
